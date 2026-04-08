@@ -1,0 +1,58 @@
+[
+  {
+    "id": "2024-01-01T09:00:00Z-call-the-bank",
+    "text": "Call the bank about account statement",
+    "createdAt": "2024-01-01T09:00:00Z",
+    "dueAt": "2024-01-02T09:00:00Z",
+    "status": "pending",
+    "source": "chat",
+    "notes": "",
+    "recurrence": null,
+    "nagEveryMinutes": 60,
+    "lastReminderAt": null,
+    "completedAt": null,
+    "mode": "normal"
+  },
+  {
+    "id": "2024-01-01T09:05:00Z-weekly-review",
+    "text": "Weekly review",
+    "createdAt": "2024-01-01T09:05:00Z",
+    "dueAt": "2024-01-08T09:00:00Z",
+    "status": "pending",
+    "source": "chat",
+    "notes": "Recurring every week",
+    "recurrence": "weekly",
+    "nagEveryMinutes": null,
+    "lastReminderAt": null,
+    "completedAt": null,
+    "mode": "normal"
+  },
+  {
+    "id": "2024-01-01T09:10:00Z-undated-idea",
+    "text": "Research competitors before next product launch",
+    "createdAt": "2024-01-01T09:10:00Z",
+    "dueAt": null,
+    "status": "pending",
+    "source": "chat",
+    "notes": "No deadline — tracked but never auto-fires",
+    "recurrence": null,
+    "nagEveryMinutes": null,
+    "lastReminderAt": null,
+    "completedAt": null,
+    "mode": "normal"
+  },
+  {
+    "id": "2024-01-01T09:15:00Z-done-example",
+    "text": "Submit tax return",
+    "createdAt": "2024-01-01T09:15:00Z",
+    "dueAt": "2024-01-15T09:00:00Z",
+    "status": "done",
+    "source": "chat",
+    "notes": "",
+    "recurrence": null,
+    "nagEveryMinutes": 30,
+    "lastReminderAt": "2024-01-15T10:00:00Z",
+    "completedAt": "2024-01-15T11:30:00Z",
+    "mode": "normal"
+  }
+]
