@@ -7,3 +7,4 @@ tasks.json
 .meg-dispatch.lock
 .meg-tasks-dispatch.lock
 *.tmp
+__pycache__/

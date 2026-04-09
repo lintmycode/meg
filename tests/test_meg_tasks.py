@@ -10,8 +10,8 @@ mocked) to unit-test find_due, format_message, and run_command in isolation,
 without needing the openclaw binary.
 
 Run with:
-    python3 -m pytest test_meg_tasks.py -v
-    python3 test_meg_tasks.py
+    python3 -m pytest tests/test_meg_tasks.py -v
+    python3 tests/test_meg_tasks.py
 """
 import importlib.util
 import json
@@ -23,7 +23,7 @@ import unittest
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-HERE       = Path(__file__).parent
+HERE       = Path(__file__).parent.parent
 MEG_TASKS  = str(HERE / 'meg-tasks.py')
 DISPATCH   = HERE / 'meg-tasks-dispatch.py'
 

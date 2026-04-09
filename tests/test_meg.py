@@ -6,8 +6,8 @@ Runs meg.py as a subprocess with MEG_DATA pointing to a temp file so the
 live reminders.json is never touched. Each test gets a fresh, isolated store.
 
 Run with:
-    python3 -m pytest test_meg.py -v
-    python3 test_meg.py          # no pytest required
+    python3 -m pytest tests/test_meg.py -v
+    python3 tests/test_meg.py          # no pytest required
 """
 import json
 import os
@@ -18,7 +18,7 @@ import unittest
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-MEG = str(Path(__file__).parent / 'meg.py')
+MEG = str(Path(__file__).parent.parent / 'meg.py')
 
 
 # ── helpers ───────────────────────────────────────────────────────────────────
