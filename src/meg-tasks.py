@@ -30,7 +30,7 @@ from pathlib import Path
 from textwrap import shorten
 
 HERE  = Path(__file__).parent
-TASKS = Path(os.environ.get('MEG_TASKS_DATA', HERE / 'tasks.json'))
+TASKS = Path(os.environ.get('MEG_TASKS_DATA', HERE.parent / 'data' / 'tasks.json'))
 FAR_FUTURE = datetime(9999, 12, 31, tzinfo=timezone.utc)
 
 

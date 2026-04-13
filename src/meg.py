@@ -24,7 +24,7 @@ from pathlib import Path
 from textwrap import shorten
 
 HERE      = Path(__file__).parent
-REMINDERS = Path(os.environ.get('MEG_DATA', HERE / 'reminders.json'))
+REMINDERS = Path(os.environ.get('MEG_DATA', HERE.parent / 'data' / 'reminders.json'))
 FAR_FUTURE = datetime(9999, 12, 31, tzinfo=timezone.utc)
 
 

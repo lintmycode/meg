@@ -18,7 +18,7 @@ import unittest
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-MEG = str(Path(__file__).parent.parent / 'meg.py')
+MEG = str(Path(__file__).parent.parent / 'src' / 'meg.py')
 
 
 # ── helpers ───────────────────────────────────────────────────────────────────

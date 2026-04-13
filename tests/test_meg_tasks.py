@@ -24,8 +24,8 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 HERE       = Path(__file__).parent.parent
-MEG_TASKS  = str(HERE / 'meg-tasks.py')
-DISPATCH   = HERE / 'meg-tasks-dispatch.py'
+MEG_TASKS  = str(HERE / 'src' / 'meg-tasks.py')
+DISPATCH   = HERE / 'src' / 'meg-tasks-dispatch.py'
 
 
 # ── helpers ───────────────────────────────────────────────────────────────────

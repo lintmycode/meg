@@ -16,7 +16,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 # Resolved relative to this file — works in container and locally.
-REMINDERS = Path(__file__).parent / 'reminders.json'
+REMINDERS = Path(__file__).parent.parent / 'data' / 'reminders.json'
 
 NAG_DEFAULT = 15  # minutes
 

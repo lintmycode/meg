@@ -23,15 +23,15 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 HERE  = Path(__file__).parent
-TASKS = HERE / 'tasks.json'
-LOCK  = HERE / '.meg-tasks-dispatch.lock'
+TASKS = HERE.parent / 'data' / 'tasks.json'
+LOCK  = HERE.parent / '.meg-tasks-dispatch.lock'
 
 # Telegram hard limit is 4096; leave headroom for the truncation notice
 TELEGRAM_MAX = 4000
 
 
 def load_dotenv():
-    env_file = HERE / '.env'
+    env_file = HERE.parent / '.env'
     if not env_file.exists():
         return
     for line in env_file.read_text().splitlines():

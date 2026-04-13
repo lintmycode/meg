@@ -19,9 +19,9 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 HERE  = Path(__file__).parent
-# State lives two levels up from ops/meg/ → workspace root / memory/
-STATE = HERE.parent.parent / 'memory' / 'meg-dispatch-state.json'
-LOCK  = HERE / '.meg-dispatch.lock'
+# State lives three levels up from src/ → workspace root / memory/
+STATE = HERE.parent.parent.parent / 'memory' / 'meg-dispatch-state.json'
+LOCK  = HERE.parent / '.meg-dispatch.lock'
 
 NAG_DEFAULT  = 15   # minutes, used when nagEveryMinutes is absent
 DEDUP_TTL_H  = 24   # hours — identical text is suppressed only within this window
@@ -29,7 +29,7 @@ DEDUP_TTL_H  = 24   # hours — identical text is suppressed only within this wi
 
 def load_dotenv():
     """Load .env next to this script into os.environ (existing vars take precedence)."""
-    env_file = HERE / '.env'
+    env_file = HERE.parent / '.env'
     if not env_file.exists():
         return
     for line in env_file.read_text().splitlines():
@@ -156,7 +156,7 @@ def main():
             sys.stderr.write('reminder-dispatch: another instance is running, skipping\n')
             return
 
-        reminders_path = HERE / 'reminders.json'
+        reminders_path = HERE.parent / 'data' / 'reminders.json'
         now   = datetime.now(timezone.utc)
         items = load_json(reminders_path, [])
         due   = find_due(items, now)

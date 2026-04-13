@@ -1,7 +1,7 @@
 # Personal config and live data — copy from *.example files
 .env
-reminders.json
-tasks.json
+data/reminders.json
+data/tasks.json
 
 # Runtime artifacts
 .meg-dispatch.lock
