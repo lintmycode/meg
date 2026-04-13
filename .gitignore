@@ -8,3 +8,4 @@ data/tasks.json
 .meg-tasks-dispatch.lock
 *.tmp
 __pycache__/
+.DS_Store
