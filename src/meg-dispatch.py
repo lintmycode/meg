@@ -24,7 +24,7 @@ STATE = HERE.parent.parent.parent / 'memory' / 'meg-dispatch-state.json'
 LOCK  = HERE.parent / '.meg-dispatch.lock'
 
 NAG_DEFAULT  = 15   # minutes, used when nagEveryMinutes is absent
-DEDUP_TTL_H  = 24   # hours — identical text is suppressed only within this window
+DEDUP_TTL_H  = 6    # hours — identical text is suppressed only within this window
 
 
 def load_dotenv():
@@ -168,10 +168,18 @@ def main():
         combined = '\n'.join(build_message(item) for item in due)
 
         # Dedup: suppress if same text was already sent within DEDUP_TTL_H hours.
+        # This prevents repeatedly nagging the user when reminders pile up without action.
+        # If all the same items are still pending and past their nag interval, they'd
+        # produce identical combined text — we suppress that repetition for DEDUP_TTL_H
+        # hours (default 6h) so the user isn't spammed with the same message every cron tick.
+        # After the TTL expires, the message is allowed through again as a gentle re-nag.
+        # EXCEPTION: Wife mode overrides dedup — those reminders always fire when due.
+        has_wife_mode = any((item.get('mode') or '').lower() == 'wife' for item in due)
         state        = load_json(STATE, {})
         last_text    = state.get('lastSentText')
         last_sent_at = parse_dt(state.get('lastSentAt'))
-        if (last_text == combined
+        if (not has_wife_mode
+                and last_text == combined
                 and last_sent_at
                 and now - last_sent_at < timedelta(hours=DEDUP_TTL_H)):
             return
